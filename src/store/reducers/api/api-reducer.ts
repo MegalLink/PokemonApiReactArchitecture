@@ -1,21 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { PokemonListResponse } from '../../../shared/interfaces/pokemon-list-response'
-import { API_INIT_STATE } from '../../../shared/constants/api-initial-state'
+import { DEFAULT_POKEMON_LIST } from './api-initial-state'
 import { getPokemonList } from './thunks/pokemon-thunks'
-import { ApiState } from '../../../shared/interfaces/reducers/api-state'
+
+interface ApiState {
+  pokemonList: PokemonListResponse
+}
+
+const initialState: ApiState = {
+    pokemonList:DEFAULT_POKEMON_LIST,
+}
 
 export const apiSlice = createSlice({
   name: 'ApiState',
-  initialState:API_INIT_STATE,
-  reducers: {},
+
+  initialState,
+  reducers: {
+  },
   extraReducers: (builder) => {
-    builder.addCase(
-      getPokemonList.fulfilled,
-      (state: ApiState, { payload }: PayloadAction<PokemonListResponse>) => {
-        state.pokemonList = payload
-      },
-    )
+    builder
+      .addCase(getPokemonList.fulfilled, (state: ApiState, {payload}: PayloadAction<PokemonListResponse>) => {
+        state.pokemonList = payload;
+      })
   },
 })
 

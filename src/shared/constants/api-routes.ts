@@ -1,4 +1,4 @@
-export const APP_ROUTES = {
-  Create: 'create',
-  Update: 'update',
+export const APP_ROUTES ={
+    Create:"create",
+    Update:"update"
 }
