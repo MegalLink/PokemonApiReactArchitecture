@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { PokemonListResponse } from '../../../../shared/interfaces/pokemon-list-response'
-import axios from 'axios'
+import axios from '../../../../utils/axios-util'
 import { API_ROUTES } from '../../../../shared/constants/app-routes'
 
 export const getPokemonList = createAsyncThunk<PokemonListResponse>(
