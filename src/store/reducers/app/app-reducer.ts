@@ -1,20 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-
-// Define a type for the slice state
-interface AppState {
-  isLoading: boolean
-}
-
-// Define the initial state using that type
-const initialState: AppState = {
-  isLoading: false,
-}
+import { APP_INIT_STATE } from '../../../shared/constants/app-initial-state'
 
 export const appSlice = createSlice({
   name: 'ApiState',
-
-  initialState,
+  initialState:APP_INIT_STATE,
   reducers: {
     setLoading: (state, { payload }: PayloadAction<boolean>) => {
       state.isLoading = payload
