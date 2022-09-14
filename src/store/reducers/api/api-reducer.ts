@@ -9,21 +9,20 @@ interface ApiState {
 }
 
 const initialState: ApiState = {
-  pokemonList: DEFAULT_POKEMON_LIST,
+    pokemonList:DEFAULT_POKEMON_LIST,
 }
 
 export const apiSlice = createSlice({
   name: 'ApiState',
 
   initialState,
-  reducers: {},
+  reducers: {
+  },
   extraReducers: (builder) => {
-    builder.addCase(
-      getPokemonList.fulfilled,
-      (state: ApiState, { payload }: PayloadAction<PokemonListResponse>) => {
-        state.pokemonList = payload
-      },
-    )
+    builder
+      .addCase(getPokemonList.fulfilled, (state: ApiState, {payload}: PayloadAction<PokemonListResponse>) => {
+        state.pokemonList = payload;
+      })
   },
 })
 
