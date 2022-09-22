@@ -49,31 +49,34 @@ https://google.github.io/styleguide/jsguide.html#features-objects-enums
 ### Files names
 
 -Components Directory
-Components/Navbar/Navbar.tsx
-Components/Navbar/Navbar.test.tsx
-Components/Navbar/data.ts \* a better name
+components/Navbar/Navbar.tsx
+components/Navbar/Navbar.test.tsx
 
 - Components State
-  Components/Navbar/state/useNavbar.tsx _
-  Components/Navbar/state/useNavbar.test.tsx _
-  PROPOSAL
-  Components/Navbar/hooks/use-navbar.tsx
-  Components/Navbar/hooks/use-navbar.test.tsx
+  components/Navbar/hooks/use-navbar.tsx
+  components/Navbar/hooks/use-navbar.test.tsx
 - Other files
   src/shared/enums/routes-enum.ts
   src/shared/constants/app-routes.ts
   src/shared/interfaces/global-interface.ts
 
-for folders use only that are not in commponents use only camelCase
+for folders from entire project use only kebab-case
+for folders in components use UpperCase
 
 ### Constants
+
+constans from component should go in route
+src/shared/constants/components/test.ts
+
+all other constants should go in route
+src/shared/constants/api-routes.ts
 
 - Global constants /document constants
   const API_PATH= "some/path"
   export const PATHS ={
-  ONE="one"
-  TWO="two"
-  THREE= (hi:string)=>hi
+  One="one"
+  Two="two"
+  Three= (hi:string)=>hi
   }
 - in function constants
   const merchantID="hola" // o es constant merchant_id="hola"
@@ -81,12 +84,18 @@ for folders use only that are not in commponents use only camelCase
 
 ### Enums
 
+Component Enums to use like labels or other enum values from component should go in route like
+src/shared/enums/components/header-enum.ts
+
+other enums should be like
 src/shared/enums/countries-enum.ts or just countries
 
+enum convention
+
 export enum Countries {
-Brazil = "Brazil",
-Chile ="Chile",
-EstadosUnidos="Estados unidos"
+BRAZIL = "Brazil",
+CHILE ="Chile",
+ESTADOS_UNIDOS = "Estados unidos"
 }
 
 export enum LogLevel {
@@ -103,8 +112,8 @@ const getMerchanID=()=>{}
 
 ### interfaces
 
-src/shared/interfaces/test-interface.ts
-export interface Hello {
-someVaule: string;
-otherValue: number;
-}
+Interfaces for components from Props and hooks should go in route
+src/shared/interfaces/components/tab-panel.interface.ts
+
+Other interfaces should go in
+src/shared/interfaces/test-test.interface.ts
